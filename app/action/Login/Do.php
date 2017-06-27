@@ -36,8 +36,14 @@ class Sample_Action_LoginDo extends Sample_ActionClass
     //このmethodはprepareがnullを返した場合のみ呼び出される
     public function perform()
     {
-        //　(処理を止めてフォームに表示するってかなり強引だな・・・)
-        die($this->af->get('mailaddress'));
+        $um = new Sample_UserManager();
+        $result = $um->auth($this->af->get('mailaddress'), $this->af->get('password'));
+        if( Ethna::isError($result)) {
+            $this->ae->addObject(null, $result);
+            return login;
+        }
+
+
         return 'index';
     }
 }

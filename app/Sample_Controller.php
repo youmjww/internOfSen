@@ -14,12 +14,14 @@ $app = BASE . "/app";
 $lib = BASE . "/lib";
 set_include_path(implode(PATH_SEPARATOR, array($app, $lib)) . PATH_SEPARATOR . get_include_path());
 
+// 一回だけ読み込み
 require_once BASE . '/vendor/autoload.php';
 require_once 'Sample_Error.php';
 require_once 'Sample_ActionClass.php';
 require_once 'Sample_ActionForm.php';
 require_once 'Sample_ViewClass.php';
 require_once 'Sample_UrlHandler.php';
+require_once 'Sample_UserManager.php';
 
 /**
  *  Sample application Controller definition.
