@@ -32,6 +32,15 @@ require_once 'Sample_UserManager.php';
  */
 class Sample_Controller extends Ethna_Controller
 {
+    function _getActionName_Form()
+    {
+        if (array_key_exists('act', $_REQUEST) == false) {
+            return null;
+        }
+        return $_REQUEST['act'];
+    }
+
+
     /**#@+
      *  @access protected
      */
@@ -60,25 +69,14 @@ class Sample_Controller extends Ethna_Controller
      *  @var    array   action definition.
      */
     protected $action = array(
-        /*
-         *  TODO: write action definition here.
-         *
-         *  Example:
-         *
-         *  'index'     => array(
-         *      'form_name' => 'Sample_Form_SomeAction',
-         *      'form_path' => 'Some/Action.php',
-         *      'class_name' => 'Sample_Action_SomeAction',
-         *      'class_path' => 'Some/Action.php',
-         *  ),
-         */
+        'some_action' => array(),
     );
 
     /**
      *  @var    array       application directory.
      */
     protected $directory = array(
-        'action'        => 'app/action',
+        'action'        => 'action',
         'action_cli'    => 'app/action_cli',
         'action_xmlrpc' => 'app/action_xmlrpc',
         'app'           => 'app',
