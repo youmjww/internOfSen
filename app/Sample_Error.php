@@ -16,3 +16,6 @@
  *  Example:
  *  define('E_LOGIN_INVALID', 256);
  */
+
+/** エラーコード：　ユーザ認証エラー */
+define('E_SAMPLE_AUTH', -128);
