@@ -17,27 +17,18 @@
 class Sample_Form_Index extends Sample_ActionForm
 {
     /**
-     *  @access   protected
-     *
-     *  @var      array   form definition.
+     * @access private
+     * @var array フォーム値定義
      */
-    public $form = array(
-    );
+    var $form = array(
+        'id' => array(
+            'type' => VAR_TYPE_INT,
+        ),
 
-    /**
-     *  Form input value convert filter : sample
-     *
-     *  @access protected
-     *  @param  mixed   $value  Form Input Value
-     *  @return mixed           Converted result.
-     */
-    /*
-    protected function _filter_sample($value)
-    {
-        //  convert to upper case.
-        return strtoupper($value);
-    }
-    */
+        'name' => array(
+            'type' => VAR_TYPE_STRING,
+        ),
+    );
 }
 
 /**
@@ -75,6 +66,7 @@ class Sample_Action_Index extends Sample_ActionClass
      */
     public function perform()
     {
+
         return 'index';
     }
 }
