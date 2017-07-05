@@ -59,6 +59,12 @@ class Sample_Controller extends Ethna_Controller
         * さらにめんどくさい場合はそもそも何も記述する必要がない
 
         */
+
+        // 遷移先を変更(ここではhelloに遷移させてみた)
+        'login' => array(
+            'view_name' => 'Sample_View_Login',
+            'forward_path' => 'hello.tpl',
+        ),
     );
 
     /**
