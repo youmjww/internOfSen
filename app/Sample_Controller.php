@@ -76,7 +76,7 @@ class Sample_Controller extends Ethna_Controller
      *  @var    array       application directory.
      */
     protected $directory = array(
-        'action'        => 'action',
+        'action'        => 'app/action',
         'action_cli'    => 'app/action_cli',
         'action_xmlrpc' => 'app/action_xmlrpc',
         'app'           => 'app',
