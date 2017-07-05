@@ -45,15 +45,26 @@ class Sample_Controller extends Ethna_Controller
      *  @var    array   forward definition.
      */
     protected $forward = array(
-        /*
-         *  TODO: write forward definition here.
-         *
-         *  Example:
-         *
-         *  'index'         => array(
-         *      'view_name' => 'Sample_View_Index',
-         *  ),
-         */
+        /**
+        * 本当は、下記のような記述が必要だが省略して
+
+        'some_action' => array(
+            'view_name' =>'Sample_View_Login',
+            'forward_path' => 'login.tpl',
+        ),
+
+        * 下記のように記述できる
+        'some_view' => array(),
+
+        * さらにめんどくさい場合はそもそも何も記述する必要がない
+
+        */
+
+        // 遷移先を変更(ここではhelloに遷移させてみた)
+        'login' => array(
+            'view_name' => 'Sample_View_Login',
+            'forward_path' => 'hello.tpl',
+        ),
     );
 
     /**
