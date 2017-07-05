@@ -21,7 +21,11 @@ class Sample_Form_ReadFile extends Sample_ActionForm
      */
     public $form = array(
         'sample_file' => array(
-        'type' => VAR_TYPE_FILE,
+            'type' => VAR_TYPE_FILE,
+        ),
+
+        'sample_array' => array(
+          'type' => array(VAR_TYPE_STRING),
         ),
     );
 
@@ -70,6 +74,7 @@ class Sample_Action_ReadFile extends Sample_ActionClass
      */
     public function perform()
     {
+        var_dump($this->af->get('sample_array'));
         var_dump($this->af->get('sample_file'));
         return 'readFile';
     }
