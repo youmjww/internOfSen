@@ -37,6 +37,7 @@ class Sample_Action_LoginDo extends Sample_ActionClass
     public function perform()
     {
         $um = new Sample_UserManager();
+        // フォームからメアドとパスワードを取得してエラーに渡してる
         $result = $um->auth($this->af->get('mailaddress'), $this->af->get('password'));
         if( Ethna::isError($result)) {
             $this->ae->addObject(null, $result);

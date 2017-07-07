@@ -22,6 +22,7 @@ require_once 'Sample_ActionForm.php';
 require_once 'Sample_ViewClass.php';
 require_once 'Sample_UrlHandler.php';
 require_once 'Sample_UserManager.php';
+require_once 'Sample_SampleManager.php';
 
 /**
  *  Sample application Controller definition.
@@ -45,7 +46,7 @@ class Sample_Controller extends Ethna_Controller
      *  @var    array   forward definition.
      */
     protected $forward = array(
-        /**
+        /*
         * 本当は、下記のような記述が必要だが省略して
 
         'some_action' => array(
@@ -61,10 +62,10 @@ class Sample_Controller extends Ethna_Controller
         */
 
         // 遷移先を変更(ここではhelloに遷移させてみた)
-        'login' => array(
-            'view_name' => 'Sample_View_Login',
-            'forward_path' => 'hello.tpl',
-        ),
+        // 'login' => array(
+        //     'view_name' => 'Sample_View_Login',
+        //     'forward_path' => 'hello.tpl',
+        // ),
     );
 
     /**
