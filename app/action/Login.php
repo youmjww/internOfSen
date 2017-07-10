@@ -62,13 +62,15 @@ class Sample_Action_Login extends Sample_ActionClass
      */
     public function prepare()
     {
-        /**
-        if ($this->af->validate() > 0) {
-            // forward to error view (this is sample)
-            return 'error';
+        $sql = "SELECT * FROM test";
+        $result =& $db->query($sql);
+        $i = 0;
+        while ($data[$i] = $result->fetchRow()) {
+            $i++;
         }
-        $sample = $this->af->get('sample');
-        */
+
+        var_dump($result);
+
         return null;
     }
 
