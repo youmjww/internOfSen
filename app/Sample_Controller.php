@@ -198,7 +198,6 @@ class Sample_Controller extends Ethna_Controller
         $message = $error->getMessage();
         $this->logger->log($log_level, sprintf("%s [ERROR CODE(%d)]", $message, $error->getCode()));
 
-        var_dump($message);
         //エラーの種類によって変えてみる
         switch($message)
         {
