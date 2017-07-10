@@ -21,13 +21,19 @@ class Sample_Form_Validate extends Sample_ActionForm
      */
     public $form = array(
        'mailaddress' => [
-           'name'   => 'メールアドレス',
-           'min' => '4',
-           'max' => '20',
-           'required'   => true,
-           'filter' => 'numeric_zentohan,alphabet_zentohan,ltrim,rtrim,ntrim',  //全角を半角に変換して、左右の空白を削除してる
-           'custom' => 'checkMailaddress',
-           'type'   => VAR_TYPE_STRING,
+            'name'   => 'メールアドレス',
+            'required'   => true,
+            'filter' => 'numeric_zentohan,alphabet_zentohan,ltrim,rtrim,ntrim',  //全角を半角に変換して、左右の空白を削除してる
+            'custom' => 'checkMailaddress',
+            'type'   => VAR_TYPE_STRING,
+       ],
+       'password' => [
+            'name'   => 'パスワード',
+            'required'   => true,
+            'filter' => 'numeric_zentohan,alphabet_zentohan,ltrim,rtrim,ntrim',  //全角を半角に変換して、左右の空白を削除してる
+            'type'   => VAR_TYPE_INT,
+            'required_error' => 'パスワードを入力してね',
+            'type_error' => 'パスワードは全部数字がいいな♡',
        ],
     );
 
@@ -63,8 +69,6 @@ class Sample_Action_Validate extends Sample_ActionClass
     {
         if ($this->af->validate() > 0) {
 
-            var_dump($this->af->validate('sample'));
-            $this->af->set('error', $error);
             return null;
         }
         return 'validate';
