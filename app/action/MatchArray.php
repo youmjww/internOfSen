@@ -1,32 +1,40 @@
 <?php
 /**
- *  ReadFile.php
+ *  MatchArray.php
  *
  *  @author     {$author}
  *  @package    Sample
  */
 
 /**
- *  readFile Form implementation.
+ *  matchArray Form implementation.
  *
  *  @author     {$author}
  *  @access     public
  *  @package    Sample
  */
-class Sample_Form_ReadFile extends Sample_ActionForm
+class Sample_Form_MatchArray extends Sample_ActionForm
 {
     /**
      *  @access protected
      *  @var    array   form definition.
      */
     public $form = array(
-        'sample_file' => array(
-            'type' => VAR_TYPE_FILE,
-        ),
-
-        'sampleArray' => array(
-          'type' => array(VAR_TYPE_STRING),
-        ),
+       'User[name]' => array(
+           'name' => '名前',
+           'type' => VAR_TYPE_STRING,
+           'form_type' => FORM_TYPE_TEXT,
+       ),
+       'User[phone][home]' => array(
+           'name' => '自宅電話番号',
+           'type' => VAR_TYPE_STRING,
+           'form_type' => FORM_TYPE_TEXT,
+       ),
+       'User[phone][mobile]' => array(
+           'name' => '携帯電話番号',
+           'type' => VAR_TYPE_STRING,
+           'form_type' => FORM_TYPE_TEXT,
+       ),
     );
 
     /**
@@ -46,16 +54,16 @@ class Sample_Form_ReadFile extends Sample_ActionForm
 }
 
 /**
- *  readFile action implementation.
+ *  matchArray action implementation.
  *
  *  @author     {$author}
  *  @access     public
  *  @package    Sample
  */
-class Sample_Action_ReadFile extends Sample_ActionClass
+class Sample_Action_MatchArray extends Sample_ActionClass
 {
     /**
-     *  preprocess of readFile Action.
+     *  preprocess of matchArray Action.
      *
      *  @access public
      *  @return string    forward name(null: success.
@@ -67,15 +75,14 @@ class Sample_Action_ReadFile extends Sample_ActionClass
     }
 
     /**
-     *  readFile action implementation.
+     *  matchArray action implementation.
      *
      *  @access public
      *  @return string  forward name.
      */
     public function perform()
     {
-        var_dump($this->af->get('sampleArray'));
-        var_dump($this->af->get('sample_file'));
-        return 'readFile';
+        var_dump($this->action_form->get('User'));
+        return 'matchArray';
     }
 }
