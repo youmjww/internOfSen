@@ -23,9 +23,10 @@ class Sample_Form_Validate extends Sample_ActionForm
        'mailaddress' => [
            'name'   => 'メールアドレス',
            'min' => '4',
-           'max' => '8',
+           'max' => '20',
            'required'   => true,
            'filter' => 'numeric_zentohan,alphabet_zentohan,ltrim,rtrim,ntrim',  //全角を半角に変換して、左右の空白を削除してる
+           'custom' => 'checkMailaddress',
            'type'   => VAR_TYPE_STRING,
        ],
     );
@@ -40,6 +41,19 @@ class Sample_Form_Validate extends Sample_ActionForm
     function _filter_sample($value)
     {
         return strtoupper($value);
+    }
+
+    /**
+    * チェックメソッド: サンプル
+    *
+    * @access public
+    * @param string $name フォーム項目名
+    */
+    function checkSample($name)
+    {
+        if (strtotime($this->form_vars[$name]) > time()) {
+            $this->ae->add($name, "{form}には未来の時間を入力してください", E_FORM_INVALIDVALUE);
+        }
     }
 }
 
