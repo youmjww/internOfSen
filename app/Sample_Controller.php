@@ -33,13 +33,13 @@ require_once 'Sample_SampleManager.php';
  */
 class Sample_Controller extends Ethna_Controller
 {
-    function _getActionName_Form()
-    {
-        if (array_key_exists('act', $_REQUEST) == false) {
-            return null;
-        }
-        return $_REQUEST['act'];
-    }
+    // function _getActionName_Form()
+    // {
+    //     if (array_key_exists('act', $_REQUEST) == false) {
+    //         return null;
+    //     }
+    //     return $_REQUEST['act'];
+    // }
 
 
     /**#@+
