@@ -22,6 +22,14 @@ class Sample_View_Index extends Sample_ViewClass
      */
     public function preforward()
     {
+        // フォーム値の取得
+        $id = $this->af->get('id');
+
+        // フォーム値の設定
+        // テンプレートに値を渡す
+        $this->af->set('id', $id+1);
+
+
     }
 }
 

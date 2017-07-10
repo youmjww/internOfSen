@@ -41,7 +41,7 @@ class Sample_Action_LoginDo extends Sample_ActionClass
         $result = $um->auth($this->af->get('mailaddress'), $this->af->get('password'));
         if( Ethna::isError($result)) {
             $this->ae->addObject(null, $result);
-            return login;
+            return 'login';
         }
 
 
