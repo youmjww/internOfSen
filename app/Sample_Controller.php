@@ -22,6 +22,7 @@ require_once 'Sample_ActionForm.php';
 require_once 'Sample_ViewClass.php';
 require_once 'Sample_UrlHandler.php';
 require_once 'Sample_UserManager.php';
+require_once 'Sample_SampleManager.php';
 
 /**
  *  Sample application Controller definition.
@@ -55,14 +56,25 @@ class Sample_Controller extends Ethna_Controller
      */
     protected $forward = array(
         /*
-         *  TODO: write forward definition here.
-         *
-         *  Example:
-         *
-         *  'index'         => array(
-         *      'view_name' => 'Sample_View_Index',
-         *  ),
-         */
+        * 本当は、下記のような記述が必要だが省略して
+
+        'some_action' => array(
+            'view_name' =>'Sample_View_Login',
+            'forward_path' => 'login.tpl',
+        ),
+
+        * 下記のように記述できる
+        'some_view' => array(),
+
+        * さらにめんどくさい場合はそもそも何も記述する必要がない
+
+        */
+
+        // 遷移先を変更(ここではhelloに遷移させてみた)
+        // 'login' => array(
+        //     'view_name' => 'Sample_View_Login',
+        //     'forward_path' => 'hello.tpl',
+        // ),
     );
 
     /**
@@ -174,5 +186,28 @@ class Sample_Controller extends Ethna_Controller
      */
     protected function _setDefaultTemplateEngine($renderer)
     {
+    }
+
+    // エラー処理
+    function handleError(&$error)
+    {
+        // ログ出力
+        list ($log_level, $dummy) = $this->logger->errorLevelToLogLevel($error->getLevel());
+        $message = $error->getMessage();
+        $this->logger->log($log_level, sprintf("%s [ERROR CODE(%d)]", $message, $error->getCode()));
+
+        //エラーの種類によって変えてみる
+        switch($message)
+        {
+            case "{form}が入力されていません" :
+                $renderer = $this->getRenderer();
+                $renderer->perform('loginError.tpl');
+                break;
+
+            case "データがありません" :
+                $renderer = $this->getRenderer();
+                $renderer->perform('error.tpl');
+                break;
+        }
     }
 }
