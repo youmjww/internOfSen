@@ -1,5 +1,4 @@
 <form action="." method="post">
-  {$form.error}<br>
   <table border="0">
     <tr>
       <tb>{ message name="mailaddress" }</tb><br>

@@ -22,7 +22,16 @@ class Sample_ActionForm extends Ethna_ActionForm
      */
 
     /** @var    array   form definition (default) */
-    public $form_template = array();
+    public $form_template = array(
+        'mailaddress' => array(
+            'name' => 'メールアドレス',
+            'required' => true,
+            'max' => 255,
+            'filter' => FILTER_HW,
+            'custom' => 'checkMailaddress',
+            'type' => VAR_TYPE_STRING,
+        ),
+    );
 
     /**#@-*/
 

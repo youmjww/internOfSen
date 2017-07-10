@@ -20,21 +20,15 @@ class Sample_Form_Validate extends Sample_ActionForm
      *  @var    array   form definition.
      */
     public $form = array(
-       'mailaddress' => [
-            'name'   => 'メールアドレス',
-            'required'   => true,
-            'filter' => 'numeric_zentohan,alphabet_zentohan,ltrim,rtrim,ntrim',  //全角を半角に変換して、左右の空白を削除してる
-            'custom' => 'checkMailaddress',
-            'type'   => VAR_TYPE_STRING,
-       ],
-       'password' => [
+        'mailaddress' => array(),
+        'password' => [
             'name'   => 'パスワード',
             'required'   => true,
             'filter' => 'numeric_zentohan,alphabet_zentohan,ltrim,rtrim,ntrim',  //全角を半角に変換して、左右の空白を削除してる
             'type'   => VAR_TYPE_INT,
             'required_error' => 'パスワードを入力してね',
             'type_error' => 'パスワードは全部数字がいいな♡',
-       ],
+        ],
     );
 
     /**
