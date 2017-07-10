@@ -5,6 +5,8 @@
  * update:
  */
 $config = array(
+    'password' => 'hogehoge',
+
     // site
     'url' => '',
 

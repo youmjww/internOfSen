@@ -77,4 +77,12 @@ class Sample_Action_Index extends Sample_ActionClass
     {
         return 'index';
     }
+
+    // Sessionが始まっていなかったらこのページを表示させない
+    function authenticate()
+    {
+        if ( !$this->session->isStart() ) {
+            return 'login';
+    }
+    }
 }
