@@ -21,3 +21,4 @@
 $i = 299;
 // ユーザ認証エラー
 define('E_SAMPLE_AUTH', $i++);
+define('E_SAMPLE_TEST', $i++);

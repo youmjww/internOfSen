@@ -189,4 +189,28 @@ class Sample_Controller extends Ethna_Controller
     protected function _setDefaultTemplateEngine($renderer)
     {
     }
+
+    // エラー処理
+    function handleError(&$error)
+    {
+        // ログ出力
+        list ($log_level, $dummy) = $this->logger->errorLevelToLogLevel($error->getLevel());
+        $message = $error->getMessage();
+        $this->logger->log($log_level, sprintf("%s [ERROR CODE(%d)]", $message, $error->getCode()));
+
+        var_dump($message);
+        //エラーの種類によって変えてみる
+        switch($message)
+        {
+            case "{form}が入力されていません" :
+                $renderer = $this->getRenderer();
+                $renderer->perform('loginError.tpl');
+                break;
+
+            case "データがありません" :
+                $renderer = $this->getRenderer();
+                $renderer->perform('error.tpl');
+                break;
+        }
+    }
 }
