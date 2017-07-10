@@ -1,1 +1,4 @@
 createFile.sh
+.DS_Store
+vendor/
+tmp/
