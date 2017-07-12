@@ -15,7 +15,7 @@ $config = array(
     'debug' => false,
 
     // db
-     'dsn' => 'pgsql://omura:sen.omurayuya%40gmail.com@unix+intern-db.sen-sv.net/omura',
+     'dsn' => 'pgsql://omura:sen.omurayuya%40gmail.com@intern-db.sen-sv.net/omura',
 
     // log
     // sample-1: sigile facility

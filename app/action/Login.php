@@ -62,14 +62,20 @@ class Sample_Action_Login extends Sample_ActionClass
      */
     public function prepare()
     {
-        $sql = "SELECT * FROM test";
-        $result =& $db->query($sql);
-        $i = 0;
-        while ($data[$i] = $result->fetchRow()) {
-            $i++;
-        }
+        require_once('adodb5/adodb.inc.php');
 
-        var_dump($result);
+        $db = $this->backend->getDB();
+        $rs = $db->query('SELECT * FROM test');
+        var_dump($rs);
+        // $db =& $this->backend->getDB();
+        // $sql = "SELECT * FROM test";
+        // $result =& $db->query($sql);
+        // $i = 0;
+        // while ($data[$i] = $result->fetchRow()) {
+        //     $i++;
+        // }
+
+        //var_dump($result);
 
         return null;
     }
