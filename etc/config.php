@@ -15,19 +15,7 @@ $config = array(
     'debug' => false,
 
     // db
-    // sample-1: single db
-    // 'dsn' => 'mysql://user:password@server/database',
-    //
-    // sample-2: single db w/ multiple users
-    // 'dsn'   => 'mysql://rw_user:password@server/database', // read-write
-    // 'dsn_r' => 'mysql://ro_user:password@server/database', // read-only
-    //
-    // sample-3: multiple db (slaves)
-    // 'dsn'   => 'mysql://rw_user:password@master/database', // read-write(master)
-    // 'dsn_r' => array(
-    //     'mysql://ro_user:password@slave1/database',         // read-only(slave)
-    //     'mysql://ro_user:password@slave2/database',         // read-only(slave)
-    // ),
+     'dsn' => 'pgsql://omura:sen.omurayuya%40gmail.com@intern-db.sen-sv.net/omura',
 
     // log
     // sample-1: sigile facility
