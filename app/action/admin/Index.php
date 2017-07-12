@@ -1,12 +1,12 @@
 <?php
 
-class Sample_Form_Index extends Sample_ActionForm
+class Sample_Form_AdminIndex extends Sample_ActionForm
 {
     public $form = array(
     );
 }
 
-class Sample_Action_Index extends Sample_ActionClass
+class Sample_Action_AdminIndex extends Sample_ActionClass
 {
     public function prepare()
     {
@@ -15,8 +15,7 @@ class Sample_Action_Index extends Sample_ActionClass
 
     public function perform()
     {
-        $this->af->set( 'user', '一般' );
-        return 'index';
+       return 'index';
     }
 
     function authenticate()
