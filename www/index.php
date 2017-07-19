@@ -12,7 +12,4 @@ require_once dirname(__FILE__) . '/../app/Sample_Controller.php';
 /**
  * Run application.
  */
-Sample_Controller::main('Sample_Controller', array(
- 'index',
- 'user_*',
-));
+Sample_Controller::main('Sample_Controller', 'index');
