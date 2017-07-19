@@ -20,8 +20,8 @@ class Sample_Form_LoginDo extends Sample_ActionForm
      *  @var    array   form definition.
      */
     public $form = array(
-       'mailaddres' => [
-           'name'   => 'mailaddres',
+       'mailaddress' => [
+           'name'   => 'mailaddress',
            'required'   => true,
            'type'   =>  VAR_TYPE_STRING,
        ],
@@ -45,20 +45,23 @@ class Sample_Action_LoginDo extends Sample_ActionClass
 {
     public function prepare()
     {
-        $mailaddres = $this->af->get('mailaddres');
+        $mailaddress = $this->af->get('mailaddress');
         $password = $this->af->get('password');
 
         require_once('adodb5/adodb.inc.php');
 
         $db = $this->backend->getDB();
-        $result = $db -> query("select id from users where mailaddres='$mailaddres' and password='$password'");
+        $result = $db -> query("select id from users where mailaddres='$mailaddress' and password='$password'");
         $inCorrect = $result->getRows()[0][id];
 
         // ログインできたらSessionスタート
-        if ( $inCorrect ) {
-            $this->session->start();
-            return 'index';
-         }
+        if($this->af->validate() === 0)
+        {   // validateを確認した後にDBを見に行くのを保証するためにネストしました
+            if ( $inCorrect ) {
+                $this->session->start();
+                return 'index';
+             }
+        }
 
         return null;
     }
