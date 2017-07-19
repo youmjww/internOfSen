@@ -34,13 +34,7 @@ class Sample_Action_Login extends Sample_ActionClass
 {
     public function prepare()
     {
-        require_once('adodb5/adodb.inc.php');
-
-        $db = $this->backend->getDB();
-        $rs = $db->query('SELECT * FROM users;');
-
-
-        print_r($rs->getRows());
+        //print_r($rs->getRows());
 
         return null;
     }

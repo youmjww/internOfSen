@@ -24,23 +24,12 @@ class Sample_Form_AdduserDo extends Sample_ActionForm
 }
 
 
-
-
-
 class Sample_Action_AdduserDo extends Sample_ActionClass
 {
     public function prepare()
     {
 
-         var_dump( $this->af->get('username') );
-        var_dump( $this->af->get('mailaddres') );
-         exit( $this->af->get('password') );
-
         if ($this->af->validate() > 0) {
-            require_once('adodb5/adodb.inc.php');
-            $db = $this->backend->getDB();
-            $rs = $db->query('SELECT * FROM test');
-            
             return 'endregist';
         }
         return null;

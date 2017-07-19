@@ -1,8 +1,11 @@
 <form action="." method="post">
   <table border="0">
     <tr>
+      <td>メールアドレス</td>
+      <td><input type="mailaddres" name="mailaddres" value="{$form.mailaddres}"></td>
+    </tr>
+    <tr>
       <td>パスワード</td>
-      {* message name=""と書くと特定のフォームに対するメッセージを書くことが出来る *}
       <td><input type="password" name="password" value=""></td>
     </tr>
   </table>
