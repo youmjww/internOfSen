@@ -20,6 +20,7 @@ require_once 'Sample_ActionClass.php';
 require_once 'Sample_ActionForm.php';
 require_once 'Sample_ViewClass.php';
 require_once 'Sample_UrlHandler.php';
+require_once 'Sample_UserManager.php';
 
 /**
  *  Sample application Controller definition.

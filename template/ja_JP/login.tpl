@@ -6,6 +6,7 @@
   {/foreach}
   </ul>
 {/if}
+
   <table border="0">
     <tr>
       <td>メールアドレス</td>
@@ -13,7 +14,7 @@
     </tr>
     <tr>
       <td>パスワード</td>
-      <td><input type="password" name="password" value=""></td>
+      <td><input type="password" name="password" value="{$form.password}"></td>
     </tr>
   </table>
   <p>
