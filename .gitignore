@@ -3,3 +3,4 @@ createFile.sh
 vendor/
 tmp/
 **.swp
+etc/config.php
