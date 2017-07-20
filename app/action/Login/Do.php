@@ -47,7 +47,7 @@ class Sample_Action_LoginDo extends Sample_ActionClass
     {
         if($this->af->validate() > 0)
         {
-            return 'index';
+            return 'login';
         }
 
         //メールアドレスとパスワードを取得してescape
