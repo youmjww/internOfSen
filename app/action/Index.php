@@ -15,6 +15,8 @@ class Sample_Action_Index extends Sample_ActionClass
 
     public function perform()
     {
+        $userName = $this->session->get('userName');
+        $this->af->set('userName',$userName);
         return 'index';
     }
 
