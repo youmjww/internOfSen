@@ -18,7 +18,7 @@
     </tr>
     <tr>
         <td>メールアドレス</td>
-        <td><input type="text" name="mailaddres" value=""></td>
+        <td><input type="text" name="mailaddress" value=""></td>
     </tr>
     <tr>
      <td>パスワード</td>
