@@ -69,11 +69,14 @@ class Sample_Action_LoginDo extends Sample_ActionClass
             return 'login';
         }
 
+
+        //ユーザー名を取得
+        $userName = $db->query("select name from users where mailaddres='$escapeMailaddress'")->getRows()[0]['name'];
         // ログインできたらSessionスタート
         $this->session->start();
+        $this->af->set('userName',$userName);
         return 'index';
 
-        return null;
     }
 
     /**

@@ -15,7 +15,6 @@ class Sample_Action_Index extends Sample_ActionClass
 
     public function perform()
     {
-        $this->af->set( 'user', '一般' );
         return 'index';
     }
 
