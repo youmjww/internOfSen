@@ -58,7 +58,6 @@ class Sample_Action_LoginDo extends Sample_ActionClass
 
         //　ユーザー認証
         require_once('adodb5/adodb.inc.php');
-
         $db = $this->backend->getDB();
         $getId = $db -> query("select id from users where mailaddres='$escapeMailaddress' and password='$escapePassword'")->getRows()[0]['id'];
 
@@ -77,8 +76,6 @@ class Sample_Action_LoginDo extends Sample_ActionClass
         $this->session->start();
         $this->session->set('userName',$userName);
 
-        // actionFormにセットして渡す
-        $this->af->set('userName',$userName);
         return 'index';
 
     }
