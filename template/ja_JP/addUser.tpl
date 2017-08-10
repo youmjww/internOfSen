@@ -18,7 +18,7 @@
     </tr>
     <tr>
         <td>メールアドレス</td>
-        <td><input type="text" name="mailaddress" value=""></td>
+        <td><input type="text" name="mailaddress" value="{$form.mailaddress}"></td>
     </tr>
     <tr>
      <td>パスワード</td>

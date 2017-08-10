@@ -22,6 +22,6 @@ class Sample_Action_AdminIndex extends Sample_ActionClass
     {
         if ( !$this->session->isStart() ) {
             return 'login';
-    }
+       }
     }
 }

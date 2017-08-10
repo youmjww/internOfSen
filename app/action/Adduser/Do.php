@@ -16,7 +16,7 @@ class Sample_Form_AdduserDo extends Sample_ActionForm
         ],
 
         'mailaddress' => [
-            'mailaddress' => 'メールアドレス',
+            'name' => 'メールアドレス',
             'required' => true,
             'type' => VAR_TYPE_STRING,
         ],
