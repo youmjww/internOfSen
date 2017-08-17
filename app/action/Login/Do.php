@@ -69,17 +69,14 @@ class Sample_Action_LoginDo extends Sample_ActionClass
         }
 
 
-        //ユーザー名を取得
-        $userName = $db->query("select name from users where mailaddres='$escapeMailaddress'")->getRows()[0]['name'];
-        $userId =  $db->query("select id from users where mailaddres='$escapeMailaddress'")->getRows()[0]['id'];
-
-
+        //セッション用の変数を用意
+        $sessionArray = Array (
+            'userName' =>  $db->query("select name from users where mailaddres='$escapeMailaddress'")->getRows()[0]['name'],
+            'userId' => $getId
+        );
         // ログインできたらSessionスタート
         $this->session->start();
-        $this->session->set('userName',$userName);
-
-        $this->session->start();
-        $this->session->set('userId',$userId);
+        $this->session->set('userName',$sessionArray);
 
         return 'index';
 
