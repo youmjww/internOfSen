@@ -1,5 +1,6 @@
 <h2>写真のアップロード</h2>
 
+<p>{$app.message}</p>
 <form action="." method="post" enctype="multipart/form-data">
     {if count($errors)}
         <ul>
