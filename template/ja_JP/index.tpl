@@ -6,4 +6,5 @@
  </form>
 
 <a href="./?action_addPhoto=true">addPhoto</a><br>
-<a href="./?action_addUser=true">addUser</a>
+<a href="./?action_addUser=true">addUser</a><br>
+<a href="./?action_viewAllPhoto=true">ViewAllPhoto</a>
