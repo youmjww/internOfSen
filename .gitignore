@@ -4,3 +4,4 @@ vendor/
 tmp/
 **.swp
 etc/config.php
+www/userPhoto
