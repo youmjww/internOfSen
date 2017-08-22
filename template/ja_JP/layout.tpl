@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <link rel="stylesheet" href="/css/ethna.css" type="text/css" />
+<script src="js/zooming.min.js"></script>
+
 <title>Sample</title>
 </head>
 <body>
