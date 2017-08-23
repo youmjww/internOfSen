@@ -8,6 +8,12 @@ class Sample_Form_AddphotoDo extends Sample_ActionForm
             'name'  => '写真',
             'required'  => true,
         ],
+
+        'group'  =>  [
+            'type'  => VAR_TYPE_STRING,
+            'name'  => 'グループ',
+            'required'  => true,
+        ],
     );
 }
 
@@ -32,7 +38,7 @@ class Sample_Action_AddphotoDo extends Sample_ActionClass
         return false;
     }
 
-    private function setPhoto ( $photoFile, $userId )
+    private function setPhoto ( $photoFile, $userId, $group )
     {
         $newFileName = $this->makeRandStr(10);
 
@@ -49,7 +55,7 @@ class Sample_Action_AddphotoDo extends Sample_ActionClass
                 $nowTime = date( "Y/m/d H:i:s", $nowUnixTime );
                 require_once('adodb5/adodb.inc.php');
                 $db = $this->backend->getDB();
-                $db->query("INSERT INTO photos(id,filePath,userid,timestamp) values (nextval('photoId'),'./userPhoto/$newFileName','$userId', '$nowTime' );");
+                $db->query("INSERT INTO photos(id,filePath,userid,timestamp, goulp) values (nextval('photoId'),'./userPhoto/$newFileName','$userId', '$nowTime', '$group' );");
             }
             else
             {
@@ -82,8 +88,9 @@ class Sample_Action_AddphotoDo extends Sample_ActionClass
     {
         $userId = $this->session->get('userName')['userId'];
         $data = $this->af->get('photo');
+        $group = pg_escape_string($this->af->get('group'));
 
-        $this->setPhoto($data, $userId);
+        $this->setPhoto($data, $userId, $group);
         return 'addPhoto';
 
     }

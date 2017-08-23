@@ -16,8 +16,12 @@
      <td>写真</td>
      <td>
         <input type="file" name="photo">
-     </td> 
+     </td>
+    <td>
+    </td> 
    </table> 
+
+   グループ <input type="text" name="group" value="未分類"></input>
 <p> 
     <input type="submit" name="action_addphoto_do" value="写真をアップロードする"> 
 </p>
