@@ -43,10 +43,13 @@ class Sample_Action_AddphotoDo extends Sample_ActionClass
                 chmod("./userPhoto/" . $newFileName, 0644);
                 $this->af->setApp('message', $photoFile["name"] . "をアップロードしました。");
 
+
                 // ファイルのアップロードに成功したら、DBにパスの保存をする
+                $nowUnixTime = time();
+                $nowTime = date( "Y/m/d H:i:s", $nowUnixTime );
                 require_once('adodb5/adodb.inc.php');
                 $db = $this->backend->getDB();
-                $db->query("INSERT INTO photos(id,filePath,userid) values (nextval('photoId'),'./userPhoto/$newFileName','$userId');");
+                $db->query("INSERT INTO photos(id,filePath,userid,timestamp) values (nextval('photoId'),'./userPhoto/$newFileName','$userId', '$nowTime' );");
             }
             else
             {
