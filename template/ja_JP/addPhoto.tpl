@@ -2,22 +2,23 @@
 <script type="text/javascript">
     function getCheck(){
         var checked = document.getElementsByName("addGroupCheck");
-        console.log(checked[0].checked);
-        var pullList = document.getElementsByName("pullList").disabled;
+        var pullList = document.getElementsByName("pullList")[0];
+        var newGroupName = document.getElementsByName("newGroupName")[0];
         if( checked[0].checked == true ) {
-            pullList = "disabled";
+            pullList.disabled = 'true';
+            newGroupName.disabled = '';
         } else
         {
-            pullList = "";
+            pullList.disabled = '';
+            newGroupName.disabled = 'true';
         }
-        console.log(btn);
     }
 </script>
 {/literal}
 <h2>写真のアップロード</h2>
 
 <p>{$app.message}</p>
-<form action="." method="post" enctype="multipart/form-data">
+<form action="./?action_addPhoto=true" method="post" enctype="multipart/form-data">
     {if count($errors)}
         <ul>
             {foreach from=$errors item=error}
@@ -36,15 +37,16 @@
     <td>
     </td> 
    </table> 
-
    グループ
-     <select name="pullList">
-        <option>hoge</option>
+    <select name="pullList">
+    {foreach from=$app.group item=list}
+        <option>{$list}</option>
+    {/foreach}
     </select><br>
 
     グループの追加 
     <INPUT type="checkbox" name="addGroupCheck" onclick="getCheck()"></input>
-    <input type="text" name="newGroupName" value="未分類"></input><br>
+    <input type="text" name="newGroupName" value="未分類" disabled></input><br>
     <p> 
     <input type="submit" name="action_addphoto_do" value="写真をアップロードする"> 
 </p>
