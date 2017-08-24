@@ -55,7 +55,7 @@
         <form action="." method="post">
             <input type="text" name="newGroupName" maxlength="20"  placeholder="グループ"></input>
             <input type="submit" name="action_ViewAllPhoto" value="送信" onclick="groupAlert()"></input>
-            <p>グループ: {$photo.groupName}</p>
+            <p>グループ: {$photo.groupname}</p>
             <input type="hidden" name="name" value="{$photo.filepath}"></input>
         </form>
         <br><br>

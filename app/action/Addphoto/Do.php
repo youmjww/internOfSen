@@ -84,7 +84,7 @@ class Sample_Action_AddphotoDo extends Sample_ActionClass
         $result = [];
         foreach ($preGroup as $group)
         {
-            $result[] = $group['groupName'];
+            $result[] = $group['groupname'];
         }
 
         return array_unique($result);

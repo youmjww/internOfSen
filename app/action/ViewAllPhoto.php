@@ -16,6 +16,7 @@ class Sample_Form_ViewAllPhoto extends Sample_ActionForm
         'group' => array(
             'type' => VAR_TYPE_STRING,
         ),
+
         'newGroupName' => array(
             'type' => VAR_TYPE_STRING,
             'required' => true,
@@ -57,7 +58,7 @@ class Sample_Action_ViewAllPhoto extends Sample_ActionClass
         $result = [];
         foreach ($copyAllPhoto as $photo)
         {
-            if($photo['groupName'] === $group)
+            if($photo['groupname'] === $group)
             {
                 $result[] = $photo;
             }
@@ -96,11 +97,15 @@ class Sample_Action_ViewAllPhoto extends Sample_ActionClass
         $this->af->setApp( 'allPhoto', $allPhoto );
 
         // プルダウン用
-        $group = $db->query("select groupName from photos where userid = '$userId'")->getRows(['groupName']);
+        $group = $db->query("select groupName from photos where userid = '$userId'")->getRows(['groupname']);
         $preGroup = ['all'];
+
+
         foreach($group as $value){
-            array_push ( $preGroup, $value['groupName'] );
+            array_push ( $preGroup, $value['groupname'] );
         }
+
+
         $this->af->setApp('nowSelect', $selectGroup);
         $this->af->setApp('groupList', array_unique($preGroup));
         return 'viewAllPhoto';
