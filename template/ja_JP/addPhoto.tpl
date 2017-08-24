@@ -1,3 +1,19 @@
+{literal}
+<script type="text/javascript">
+    function getCheck(){
+        var checked = document.getElementsByName("addGroupCheck");
+        console.log(checked[0].checked);
+        var pullList = document.getElementsByName("pullList").disabled;
+        if( checked[0].checked == true ) {
+            pullList = "disabled";
+        } else
+        {
+            pullList = "";
+        }
+        console.log(btn);
+    }
+</script>
+{/literal}
 <h2>写真のアップロード</h2>
 
 <p>{$app.message}</p>
@@ -21,8 +37,15 @@
     </td> 
    </table> 
 
-   グループ <input type="text" name="group" value="未分類"></input>
-<p> 
+   グループ
+     <select name="pullList">
+        <option>hoge</option>
+    </select><br>
+
+    グループの追加 
+    <INPUT type="checkbox" name="addGroupCheck" onclick="getCheck()"></input>
+    <input type="text" name="newGroupName" value="未分類"></input><br>
+    <p> 
     <input type="submit" name="action_addphoto_do" value="写真をアップロードする"> 
 </p>
 </form>

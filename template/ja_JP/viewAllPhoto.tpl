@@ -17,7 +17,7 @@
         <form action="." method="post">
 
             <img src="{$photo.filepath}" style="width:50%" data-action="zoom"><br>
-            <p>{$photo.memo}</p>
+            <p>メモ: {$photo.memo}</p>
             <textarea type="text" name="memo" maxlength="80"  placeholder="メモ"></textarea>
             <input type="hidden" name="name" value="{$photo.filepath}"></input>
             <input type="submit" name="action_ViewAllPhoto" value="送信"></input>
@@ -25,7 +25,8 @@
 
         </form>
         <form action="." method="post">
-            <input type="text" name="newGroupName" maxlength="20"  placeholder="グループ"></textarea>
+            <input type="text" name="newGroupName" maxlength="20"  placeholder="グループ"></input>
+            <p>グループ: {$photo.goulp}</p>
             <input type="hidden" name="name" value="{$photo.filepath}"></input>
             <input type="submit" name="action_ViewAllPhoto" value="送信"></input>
         </form>
