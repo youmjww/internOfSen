@@ -9,11 +9,17 @@ class Sample_Form_AddphotoDo extends Sample_ActionForm
             'required'  => true,
         ],
 
-        'group'  =>  [
+        'newGroupName'  =>  [
             'type'  => VAR_TYPE_STRING,
             'name'  => 'グループ',
-            'required'  => true,
         ],
+
+        'pullList'  =>  [
+            'type'  => VAR_TYPE_STRING,
+            'name'  => 'グループ',
+        ],
+
+
     );
 }
 
@@ -69,8 +75,29 @@ class Sample_Action_AddphotoDo extends Sample_ActionClass
     }
 
 
+    private function getGroup($userId)
+    {
+        require_once('adodb5/adodb.inc.php');
+        $db = $this->backend->getDB();
+        $preGroup =  $db->query("select goulp from photos where userid = '$userId';")->getRows();
+
+        $result = [];
+        foreach ($preGroup as $group)
+        {
+            $result[] = $group['goulp'];
+        }
+
+        return array_unique($result);
+
+    }
+
     public function prepare()
     {
+        $userId = $this->session->get('userName')['userId'];
+        $result = $this->getGroup($userId);
+        $this->af->setApp('group',$result);
+
+
         if ( $this->af->validate() > 0 )
         {
             return 'addPhoto';
@@ -88,9 +115,16 @@ class Sample_Action_AddphotoDo extends Sample_ActionClass
     {
         $userId = $this->session->get('userName')['userId'];
         $data = $this->af->get('photo');
-        $group = pg_escape_string($this->af->get('group'));
+        $selectGroup;
 
-        $this->setPhoto($data, $userId, $group);
+        if (!$this->af->get('pullList'))
+        {
+            $selectGroup = $this->af->get('newGroupName');
+        } else {
+            $selectGroup = $this->af->get('pullList');
+        }
+
+        $this->setPhoto($data, $userId, $selectGroup);
         return 'addPhoto';
 
     }
