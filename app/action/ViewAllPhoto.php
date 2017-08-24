@@ -40,7 +40,7 @@ class Sample_Action_ViewAllPhoto extends Sample_ActionClass
         $escapGroupName = pg_escape_string($newGroupName);
         require_once('adodb5/adodb.inc.php');
         $db = $this->backend->getDB();
-        $db->query("update photos set goulp = '$escapGroupName' where filepath = '$filepath';");
+        $db->query("update photos set groupName = '$escapGroupName' where filepath = '$filepath';");
 
     }
 
@@ -57,9 +57,9 @@ class Sample_Action_ViewAllPhoto extends Sample_ActionClass
         $result = [];
         foreach ($copyAllPhoto as $photo)
         {
-            if($photo['goulp'] === $group)
+            if($photo['groupName'] === $group)
             {
-                array_push($result, $photo);
+                $result[] = $photo;
             }
         }
         return $result;
@@ -91,15 +91,15 @@ class Sample_Action_ViewAllPhoto extends Sample_ActionClass
         $db = $this->backend->getDB();
 
         // 写真を表示する用
-        $allPhoto = $db->query("select filepath, memo, goulp from photos where userid = '$userId'  order by timestamp;")->getRows(['']);
+        $allPhoto = $db->query("select filepath, memo, groupName from photos where userid = '$userId'  order by timestamp;")->getRows(['']);
         $allPhoto = $this->groupFilter($selectGroup, $allPhoto);
         $this->af->setApp( 'allPhoto', $allPhoto );
 
         // プルダウン用
-        $group = $db->query("select goulp from photos where userid = '$userId'")->getRows(['goulp']);
+        $group = $db->query("select groupName from photos where userid = '$userId'")->getRows(['groupName']);
         $preGroup = ['all'];
         foreach($group as $value){
-            array_push ( $preGroup, $value['goulp'] );
+            array_push ( $preGroup, $value['groupName'] );
         }
         $this->af->setApp('nowSelect', $selectGroup);
         $this->af->setApp('groupList', array_unique($preGroup));

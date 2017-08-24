@@ -13,12 +13,12 @@ class Sample_Action_AddPhoto extends Sample_ActionClass
     {
         require_once('adodb5/adodb.inc.php');
         $db = $this->backend->getDB();
-        $preGroup =  $db->query("select goulp from photos where userid = '$userId';")->getRows();
+        $preGroup =  $db->query("select groupName from photos where userid = '$userId';")->getRows();
 
         $result = [];
         foreach ($preGroup as $group)
         {
-           $result[] = $group['goulp'];
+           $result[] = $group['groupName'];
         }
 
         return array_unique($result);

@@ -61,7 +61,7 @@ class Sample_Action_AddphotoDo extends Sample_ActionClass
                 $nowTime = date( "Y/m/d H:i:s", $nowUnixTime );
                 require_once('adodb5/adodb.inc.php');
                 $db = $this->backend->getDB();
-                $db->query("INSERT INTO photos(id,filePath,userid,timestamp, goulp) values (nextval('photoId'),'./userPhoto/$newFileName','$userId', '$nowTime', '$group' );");
+                $db->query("INSERT INTO photos(id,filePath,userid,timestamp, groupName) values (nextval('photoId'),'./userPhoto/$newFileName','$userId', '$nowTime', '$group' );");
             }
             else
             {
@@ -79,12 +79,12 @@ class Sample_Action_AddphotoDo extends Sample_ActionClass
     {
         require_once('adodb5/adodb.inc.php');
         $db = $this->backend->getDB();
-        $preGroup =  $db->query("select goulp from photos where userid = '$userId';")->getRows();
+        $preGroup =  $db->query("select groupName from photos where userid = '$userId';")->getRows();
 
         $result = [];
         foreach ($preGroup as $group)
         {
-            $result[] = $group['goulp'];
+            $result[] = $group['groupName'];
         }
 
         return array_unique($result);

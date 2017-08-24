@@ -54,11 +54,8 @@
         </form>
         <form action="." method="post">
             <input type="text" name="newGroupName" maxlength="20"  placeholder="グループ"></input>
-<<<<<<< HEAD
-=======
             <input type="submit" name="action_ViewAllPhoto" value="送信" onclick="groupAlert()"></input>
->>>>>>> be4f6e881d5ca1833afd2674dc98cc78ac91d2a3
-            <p>グループ: {$photo.goulp}</p>
+            <p>グループ: {$photo.groupName}</p>
             <input type="hidden" name="name" value="{$photo.filepath}"></input>
         </form>
         <br><br>
