@@ -2,7 +2,6 @@
 <script type="text/javascript">
     function getCheck(){
         var checked = document.getElementsByName("addGroupCheck");
-        console.log(checked[0].checked);
         var pullList = document.getElementsByName("pullList")[0];
         var newGroupName = document.getElementsByName("newGroupName")[0];
         if( checked[0].checked == true ) {
@@ -13,7 +12,6 @@
             pullList.disabled = '';
             newGroupName.disabled = 'true';
         }
-        console.log(pullList);
     }
 </script>
 {/literal}
